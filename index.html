@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Meus Achadinhos</title>
+  <meta name="description" content="Oferta do dia na Shopee.">
+  <meta name="theme-color" content="#4C1D95">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    :root { --bg: #F6F3FB; --card: #fff; --text: #1E1530; --muted: #6B6280; --border: #E6E0F0; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #120D1C; --card: #1C1529; --text: #F2EEF8; --muted: #A79DB8; --border: #2E2440; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 24px 16px;
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .card {
+      width: 100%; max-width: 400px; text-align: center;
+      background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 32px 22px 24px;
+    }
+    img { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 8px 24px rgba(76, 29, 149, .25); }
+    .nome { font-weight: 700; font-size: 15px; color: var(--muted); margin-top: 14px; }
+    h1 { font-size: 24px; line-height: 1.25; margin: 6px 0 24px; }
+    a.botao {
+      display: block; padding: 18px; border-radius: 16px; text-decoration: none;
+      background: linear-gradient(135deg, #4C1D95, #C026D3); color: #fff; font-size: 19px; font-weight: 700;
+      box-shadow: 0 8px 24px rgba(109, 40, 217, .35);
+    }
+    a.botao:active { transform: scale(.98); }
+    p { font-size: 13px; color: var(--muted); margin: 18px 0 0; line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img src="icon-192.png" alt="">
+    <div class="nome" id="nome"></div>
+    <h1 id="produto"></h1>
+    <a class="botao" id="link" href="#" target="_blank" rel="noopener">Ver na Shopee</a>
+    <p>Link de afiliado: você paga o mesmo preço e eu ganho uma pequena comissão. Obrigado!<br>Esta página não é da Shopee.</p>
+  </main>
+
+  <script>
+    // ====== EDITE AQUI ======
+    const NOME    = "Meus Achadinhos";
+    const PRODUTO = "Oferta do dia";
+    const LINK    = "COLE_SEU_LINK_AQUI";
+    // ========================
+
+    document.title = NOME;
+    document.getElementById("nome").textContent = NOME;
+    document.getElementById("produto").textContent = PRODUTO;
+    const botao = document.getElementById("link");
+    if (/^https?:\/\//i.test(LINK)) {
+      botao.href = LINK;
+    } else {
+      botao.textContent = "Link em breve";
+      botao.removeAttribute("target");
+      botao.addEventListener("click", (e) => e.preventDefault());
+    }
+  </script>
+</body>
+</html>
